@@ -1,0 +1,28 @@
+<% content_for :title do %><%=@curso.name%><% end %>
+
+<section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading display-1">#<%=@curso.name%></h1>
+          <p class="lead text-muted">
+          	Aquí encontrarás todos los deberes, actividades y ejemplos relacionados con <%=@curso.name%> de primaria          	
+		</p>
+          <p>
+            <a href="#asignaturas" class="btn btn-primary my-2">Asignaturas</a>
+            <a href="<%=trabajocasa_path(@curso.id)%>" class="btn btn-secondary my-2">Trabajo de casa</a>
+            <a href="#" class="btn btn-secondary my-2">Actividades</a>
+          </p>
+        </div>
+      </section>
+
+<!-- Three columns of text below the carousel -->
+<p class="display-4" id="asignaturas">Asignaturas</p>
+<div class="row" >	
+	<%Asignatura.where("curso=?", @curso.id).each do |a|%>
+	  <div class="col-lg-4">
+	    <img class="img-fluid img-thumbnail" src="/images/<%=a.image%>" alt="Generic placeholder image" width="140" height="140">
+	    <h2><%= a.name %></h2>
+	    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+	    <p><a class="btn btn-secondary" href="<%=asignatura_path(a.id)%>" role="button">Ver asignatura &raquo;</a></p>
+	  </div><!-- /.col-lg-4 -->
+  <%end%>
+</div><!-- /.row -->
