@@ -1,20 +1,33 @@
+<h1 class="display-4"></h1>
+<section class="jumbotron text-center">
+        <div class="container">
+        	<h1 class="jumbotron-heading display-4">
+        	<img class="" src="/images/ClassDojo Accessories/sticky-notes.png" alt="Generic placeholder image" width="140" height="140">
+          Trabajo para casa # <%= @curso.name.upcase%>
+          </h1>
+        
+        </div>
+      </section>
+      
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">Asignatura</th>
+			<th scope="col">Paginas</th>
+			<th scope="col">Ejercicios</th>
+			<th scope="col">Fecha</th>
+		</tr>
+	</thead>
+	<tbody>
 
-
-    <h1 class="display-4">Trabajo para casa de <%=@curso.name%> curso</h1>
-    
-
-<%@trabajos.each do |t|%>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="/images/homework1.jpeg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"><%=Asignatura.find(t.asignatura).name%></h5>
-    <p class="card-text"><%=t.titulo%></p>
-    <p class="card-text"><%=t.descripcion%></p>    
-    <p class="card-text"><%=t.date.strftime("%d-%m-%Y")%></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<%end%>
-
-
+		<%@trabajos.each do |t|%>
+		<tr>
+			<th scope="row"><img class="" src="/images/<%=Asignatura.find(t.asignatura).image%>" width="50px"> <%= Asignatura.find(t.asignatura).name%></th>
+			<td colspan="1"><%= t.titulo%></td>
+			<td><%= t.descripcion%></td>
+			<td><%= t.date.strftime("%A, %d-%b-%Y")%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
 

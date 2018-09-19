@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "mini_racer"
+gem "rails-i18n"
 
 group :development, :test do
   gem 'byebug'

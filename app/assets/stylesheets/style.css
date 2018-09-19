@@ -1,5 +1,22 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
+.c-asignatura {
+  height: 120px;
+  width: auto;
+}
+
+#lpda-mobile {
+        display: none;
+    }
+
+@media only screen and (max-width: 600px) {
+    #lpda-desktop {
+        display: none;
+    }
+    #lpda-mobile {
+        display: block;
+    }
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
