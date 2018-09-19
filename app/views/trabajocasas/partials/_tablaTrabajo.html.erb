@@ -1,33 +1,23 @@
-<h1 class="display-4"></h1>
-<section class="jumbotron text-center">
-        <div class="container">
-        	<h1 class="jumbotron-heading display-4">
-        	<img class="" src="/images/ClassDojo Accessories/sticky-notes.png" alt="Generic placeholder image" width="140" height="140">
-          Trabajo para casa # <%= @curso.name.upcase%>
-          </h1>
-        
-        </div>
-      </section>
-      
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th scope="col">Asignatura</th>
 			<th scope="col">Paginas</th>
 			<th scope="col">Ejercicios</th>
+			<th scope="col">Nota</th>
 			<th scope="col">Fecha</th>
 		</tr>
 	</thead>
 	<tbody>
 
-		<%@trabajos.each do |t|%>
+		<%trabajos.each do |t|%>
 		<tr>
 			<th scope="row"><img class="" src="/images/<%=Asignatura.find(t.asignatura).image%>" width="50px"> <%= Asignatura.find(t.asignatura).name%></th>
 			<td colspan="1"><%= t.titulo%></td>
 			<td><%= t.descripcion%></td>
+			<td><%= t.notas%></td>
 			<td><%= t.date.strftime("%A, %d-%b-%Y")%></td>
 		</tr>
 		<%end%>
 	</tbody>
 </table>
-

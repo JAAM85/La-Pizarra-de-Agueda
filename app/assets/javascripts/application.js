@@ -16,3 +16,19 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+function reload_trabajos(date){
+    console.log(date);
+    $('#tablaTrabajos').html("");
+    var url = "/reload_trabajos";
+
+    $.ajax({                        
+       type: "POST",                 
+       url: url,                     
+       data: {"date": date}, 
+       success: function(data)             
+       {
+         $('#tablaTrabajos').html(data);               
+       }
+   });
+} 
