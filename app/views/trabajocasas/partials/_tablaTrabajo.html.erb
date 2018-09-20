@@ -1,3 +1,8 @@
+<h1 class="jumbotron-heading display-6">       
+	del <%=@trabajos.first.date.beginning_of_week.strftime("%d-%b-%Y") %>
+	al <%=@trabajos.first.date.end_of_week.strftime("%d-%b-%Y") %>
+</h1>
+
 <table class="table table-hover">
 	<thead>
 		<tr>
