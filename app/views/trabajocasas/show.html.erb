@@ -9,12 +9,11 @@
 <%end%>
 
 <h1 class="display-4"></h1>
-
 <section class="jumbotron text-center">
         <div class="container">
         	<h1 class="jumbotron-heading display-4">
         	<img class="" src="/images/ClassDojo Accessories/sticky-notes.png" alt="Generic placeholder image" width="140" height="140">
-          	Trabajo para casa # <%= @curso.name.upcase%>
+          		Trabajo para casa # <%= @curso.name.upcase%>
           </h1>
         
         </div>
@@ -23,7 +22,6 @@
 	  <button onclick="reload_trabajos('<%=(Date.today - 3.weeks).end_of_week%>');" type="button" class="btn btn-outline-primary">
 	  	del <%=(Date.today - 3.weeks).beginning_of_week.strftime('%d/%m/%y')%> al <%=(Date.today-3.weeks).end_of_week.strftime('%d/%m/%y')%>
 	  </button>
-
 
 	  <button onclick="reload_trabajos('<%=(Date.today - 2.weeks).end_of_week%>');" type="button" class="btn btn-outline-primary">
 	  	del <%=(Date.today - 2.weeks).beginning_of_week.strftime('%d/%m/%y')%> al <%=(Date.today-2.weeks).end_of_week.strftime('%d/%m/%y')%>

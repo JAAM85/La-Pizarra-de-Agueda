@@ -7,8 +7,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem "mini_racer"
 gem "rails-i18n"
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'byebug'
