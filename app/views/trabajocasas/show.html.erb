@@ -18,22 +18,53 @@
         
         </div>
       </section>
+	  
 
-	  <button onclick="reload_trabajos('<%=(Date.today - 3.weeks).end_of_week%>');" type="button" class="btn btn-outline-primary">
-	  	del <%=(Date.today - 3.weeks).beginning_of_week.strftime('%d/%m/%y')%> al <%=(Date.today-3.weeks).end_of_week.strftime('%d/%m/%y')%>
-	  </button>
+	  
+	  <div class="row" >
+	  	  
+	  	<div class="col-lg-2">
+			<button onclick="reload_trabajos('<%=(Date.today).end_of_week - 6.days %>');" type="button" class="btn btn-outline-primary">
+				<%=(Date.today.end_of_week - 6.days).strftime("%A") %>
+				<%=(Date.today.end_of_week - 6.days).strftime("%d/%m") %>
+			</button>
+	  </div>	  
+	<div class="col-lg-2">
 
-	  <button onclick="reload_trabajos('<%=(Date.today - 2.weeks).end_of_week%>');" type="button" class="btn btn-outline-primary">
-	  	del <%=(Date.today - 2.weeks).beginning_of_week.strftime('%d/%m/%y')%> al <%=(Date.today-2.weeks).end_of_week.strftime('%d/%m/%y')%>
+	  <button onclick="reload_trabajos('<%=(Date.today).end_of_week - 5.days %>');" type="button" class="btn btn-outline-primary">
+	  	<%=(Date.today.end_of_week - 5.days).strftime("%A") %> 
+		<%=(Date.today.end_of_week - 5.days).strftime("%d/%m") %>
 	  </button>
-      
-	   <button onclick="reload_trabajos('<%=(Date.today - 1.weeks).end_of_week%>')"  type="button" class="btn btn-outline-primary">
-	  	del <%=(Date.today - 1.week).beginning_of_week.strftime('%d/%m/%y')%> al <%=(Date.today-1.week).end_of_week.strftime('%d/%m/%y')%>
+	  </div>	  
+	<div class="col-lg-2">
+
+	  <button onclick="reload_trabajos('<%=(Date.today).end_of_week - 4.days %>');" type="button" class="btn btn-outline-primary">
+	  	<%=(Date.today.end_of_week - 4.days).strftime("%A") %> 
+		<%=(Date.today.end_of_week - 4.days).strftime("%d/%m") %>
 	  </button>
-      
-	  <button onclick="reload_trabajos('<%=(Date.today - 0.weeks).end_of_week%>')" type="button" class="btn btn-outline-primary">
-	  	del <%=Date.today.beginning_of_week.strftime('%d/%m/%y')%> al <%=Date.today.end_of_week.strftime('%d/%m/%y')%>
+	  </div>	  
+	<div class="col-lg-2">
+
+	  <button onclick="reload_trabajos('<%=(Date.today).end_of_week - 3.days %>');" type="button" class="btn btn-outline-primary">
+	  	<%=(Date.today.end_of_week - 3.days).strftime("%A") %> 
+		<%=(Date.today.end_of_week - 3.days).strftime("%d/%m") %>
 	  </button>
+	  </div>	  
+	<div class="col-lg-2">
+
+	  <button onclick="reload_trabajos('<%=(Date.today).end_of_week - 2.days %>');" type="button" class="btn btn-outline-primary">
+	  	<%=(Date.today.end_of_week - 2.days).strftime("%A") %> 
+		<%=(Date.today.end_of_week - 2.days).strftime("%d/%m") %>
+	  </button>
+	  </div>	
+	  
+	<div class="col-lg-2">	
+	  <button onclick="" type="button" class="btn btn-outline-success">
+	  	Todas
+	  </button>
+	  </div>
+	  
+	  </div>  
 
 <div id="tablaTrabajos">	  
 	<%=render :partial => "trabajocasas/partials/tablaTrabajo", locals: {trabajos: @trabajos, date: Date.today}%>

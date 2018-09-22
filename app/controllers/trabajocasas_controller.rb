@@ -3,7 +3,7 @@ class TrabajocasasController < ApplicationController
   def show
     @curso = Curso.find(params[:id])
     trabajos = Trabajocasa.joins("INNER JOIN asignaturas ON asignaturas.id = trabajocasas.asignatura").where("asignaturas.curso=?",@curso.id)
-    @trabajos = Trabajocasa.where("date <= ? and date > ?" , DateTime.now.end_of_week, DateTime.now.beginning_of_week)
+    @trabajos = Trabajocasa.where("date >= ? and date <= ?" , DateTime.now.beginning_of_day, DateTime.now.end_of_day)
 
   end
 
@@ -24,10 +24,10 @@ class TrabajocasasController < ApplicationController
   end
 
   def reload_trabajos
-    @trabajos = Trabajocasa.where("date <= ? and date > ?" , DateTime.parse(params[:date]).end_of_day, (DateTime.parse(params[:date]) - 1.week).end_of_day)
+    @trabajos = Trabajocasa.where("date >= ? and date <= ?" , DateTime.parse(params[:date]).beginning_of_day, DateTime.parse(params[:date]).end_of_day)
     respond_to do |format|
   
-      format.html { render :partial => "trabajocasas/partials/tablaTrabajo", locals: {trabajos: @trabajos} }
+      format.html { render :partial => "trabajocasas/partials/tablaTrabajo", locals: {trabajos: @trabajos, date: DateTime.parse(params[:date])} }
   
     end
   end
