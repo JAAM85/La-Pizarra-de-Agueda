@@ -1,4 +1,27 @@
+
 <% content_for :title do %><%=@curso.name%><% end %>
+
+<%if user_signed_in? && current_user.role == "admin"%>
+	<ul class="nav">
+		<li class="nav-item">			
+			<a class="nav-link active" href="<%=trabajocasas_new_path(params[:id])%>">
+				<i class="fas fa-plus"></i> Crear nueva tarea para casa
+			</a>
+		</li>	
+    <li class="nav-item">			
+			<a class="nav-link active" href="<%=controls_new_path(params[:id])%>">
+				<i class="fas fa-plus"></i> Crear nuevo control
+			</a>
+		</li>		
+	</ul>
+<%end%>
+
+
+  <%@controles.each do |c|%>
+  <div class="alert alert-danger" role="alert">
+    <img class="" src="/images/<%=Asignatura.find(c.asignatura).image%>" alt="Generic placeholder image" width="50" height="auto"> <strong> ¡CONTROL! </strong> Asignatura:  <strong><%=Asignatura.find(c.asignatura).name%></strong> Fecha: <strong><%=c.fecha.strftime("%d-%m-%Y")%></strong>
+  </div>
+  <%end%>
 
 <section class="jumbotron text-center">
         <div class="container">
