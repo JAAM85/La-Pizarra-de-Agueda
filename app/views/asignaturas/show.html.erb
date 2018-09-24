@@ -7,12 +7,34 @@
   </ol>
 </nav>
 
-
+<%= render partial: '/asignaturas/partials/menuAdmin' %>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4"><%=@asignatura.name%></h1>
+    <h1 class="display-3">
+    <img class="" src="/images/<%=@asignatura.image%>" alt="Generic placeholder image" width="200" height="auto"> <%=@asignatura.name%></h1>
     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   </div>
+</div>
+
+
+<h1 class="display-4">Temas</h1>
+ <div class="container marketing">
+  <%@temas.each do |t|%>
+    <div class="row featurette">
+    <hr class="featurette-divider">
+
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" src="/images/temas/<%=t.imagen%>" alt="Generic placeholder image">
+    </div>
+
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><%=t.titulo%></h2>
+      <p class="lead"><%=t.descripcion%></p>
+    <a href="<%=tema_path(t.id)%>" class="btn btn-primary">Ir a <%=t.titulo%></a>  
+    </div>
+  </div>     
+ <hr class="featurette-divider">
+  <%end%>
 </div>
 
 

@@ -1,0 +1,32 @@
+<% content_for :title do %><%=@tema.titulo%><% end %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="<%=curso_path(Asignatura.find(@tema.asignatura).curso)%>"><%=Curso.find(Asignatura.find(@tema.asignatura).curso).name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="<%=asignatura_path(@tema.asignatura)%>"><%=Asignatura.find(@tema.asignatura).name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@tema.titulo%></li>
+  </ol>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <img class="c-asignatura" src="/images/temas/<%=@tema.imagen%>" alt="Generic placeholder image" width="140" height="140">
+    <h1 class="display-4"><%=@tema.titulo%></h1>
+    <p class="lead"><%=@tema.descripcion%></p>    
+  </div>
+</div>
+
+<!-- Three columns of text below the carousel -->
+<p class="display-4" id="asignaturas">Actividades</p>
+<div class="row" >	
+	<%@actividades.each do |a|%>
+	  <div class="col-lg-4">
+	    <img class="c-asignatura" src="/images/actividades/<%=a.imagen%>" alt="Generic placeholder image" width="140" height="140">
+	    <h2><%= a.titulo %></h2>
+	    <p><%=a.descripcion%></p>
+	    <p><a target="_blank" class="btn btn-primary" href="<%=(a.link)%>" role="button">Ir a la actividad &raquo;</a></p>
+	  </div><!-- /.col-lg-4 -->
+  <%end%>
+</div><!-- /.row -->
+
+

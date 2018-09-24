@@ -20,17 +20,58 @@
 //= require_tree .
 
 function reload_trabajos(date){
-    console.log(date);
-    $('#tablaTrabajos').html("");
-    var url = "/reload_trabajos";
+  console.log(date);
+  $('#tablaTrabajos').html("");
+  var url = "/reload_trabajos";
 
-    $.ajax({                        
-       type: "POST",                 
-       url: url,                     
-       data: {"date": date}, 
-       success: function(data)             
-       {
-         $('#tablaTrabajos').html(data);               
-       }
-   });
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"date": date}, 
+     success: function(data)             
+     {
+       $('#tablaTrabajos').html(data);               
+     }
+ });
 } 
+
+function edit_tema(tema){
+
+  $('#tema').html("");
+  var url = "/edit_tema";
+
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"tema": tema}, 
+     success: function(data)             
+     {
+       $('#tema').html(data);               
+     },
+     error:function(data)  
+     {
+       console.log(data);
+     }
+ });
+} 
+
+function edit_actividad(tema){
+
+  $('#tema').html("");
+  var url = "/edit_actividad";
+
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"tema": tema}, 
+     success: function(data)             
+     {
+       $('#tema').html(data);               
+     },
+     error:function(data)  
+     {
+       console.log(data);
+     }
+ });
+} 
+
