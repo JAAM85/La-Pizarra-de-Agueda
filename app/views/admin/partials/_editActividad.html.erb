@@ -1,4 +1,4 @@
-<%= form_for @tema do |f| %>
+<%= form_for @actividad do |f| %>
   <div class="form-group">
     <label for="">Título</label>
     <%= f.text_field :titulo, class: "form-control" %>
@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <label for="">Asignatura</label>
-    <%= f.select :asignatura, options_for_select(asignaturas.map{ |u| [u.name, u.id] }), {}, { :class => 'form-control' } %>   
+    <%= f.select :tema, options_for_select(asignaturas.map{ |u| [u.name, u.id] }), {}, { :class => 'form-control' } %>   
   </div>
     
     <%= f.submit "Guardar", :class => "btn btn-primary mb-2"%>

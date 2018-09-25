@@ -55,18 +55,18 @@ function edit_tema(tema){
  });
 } 
 
-function edit_actividad(tema){
+function edit_control(c){
 
-  $('#tema').html("");
-  var url = "/edit_actividad";
+  $('#control').html("");
+  var url = "/edit_control";
 
   $.ajax({                        
      type: "POST",                 
      url: url,                     
-     data: {"tema": tema}, 
+     data: {"control": c}, 
      success: function(data)             
      {
-       $('#tema').html(data);               
+       $('#control').html(data);               
      },
      error:function(data)  
      {
@@ -74,4 +74,43 @@ function edit_actividad(tema){
      }
  });
 } 
+
+function edit_actividad(actividad){
+
+  $('#actividad').html("");
+  var url = "/edit_actividad";
+
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"actividad": actividad}, 
+     success: function(data)             
+     {
+       $('#actividad').html(data);               
+     },
+     error:function(data)  
+     {
+       console.log(data);
+     }
+ });
+}
+
+function delete_contenido(contenido, id){
+
+  var url = "/delete_"+contenido;
+
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"id": id}, 
+     success: function(data)             
+     {
+       window.location.reload();              
+     },
+     error:function(data)  
+     {
+       console.log(data);
+     }
+ });
+}
 

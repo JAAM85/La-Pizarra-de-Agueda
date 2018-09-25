@@ -8,11 +8,26 @@ class ActividadsController < ApplicationController
     Actividad.create(:tema => params[:actividad][:tema], 
                         :descripcion => params[:actividad][:descripcion],
                         :titulo => params[:actividad][:titulo],
-                        :imagen => params[:actividad][:titulo],
+                        :imagen => params[:actividad][:imagen],
                         :link => params[:actividad][:link])
 
-    redirect_to curso_path(Asignatura.find(params[:control][:asignatura]).curso)
+    flash[:success] = "Se ha creado la nueva actividad."                    
+    redirect_to adminactividades_path
   end
+
+  def update
+    actividad = Actividad.find(params[:id])
+    actividad.update(:tema => params[:actividad][:tema], 
+      :descripcion => params[:actividad][:descripcion],
+      :titulo => params[:actividad][:titulo],
+      :imagen => params[:actividad][:imagen],
+      :link => params[:actividad][:link])
+
+    flash[:success] = "Se ha actualizado la actividad."
+    
+    redirect_to adminactividades_path
+  end
+
 
   def new
     @actividad = Actividad.new

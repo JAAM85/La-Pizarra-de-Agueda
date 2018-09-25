@@ -1,34 +1,36 @@
 
 <%= render partial: 'actividads/partials/menuAdmin' %>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4"><img class="" src="/images/ClassDojo Accessories/hero-privacy.png" alt="Generic placeholder image" width="140" height="140"> Actividades</h1>
+      <p class="lead">Encuentra aquí todos los enlaces de las actividades o ejercicios complementarios para tu aprendizaje.</p>
+    </div>
 
-<section class="jumbotron text-center">
-        <div class="container">
-        	<h1 class="jumbotron-heading display-1">
-        	<img class="" src="/images/ClassDojo Accessories/hero-privacy.png" alt="Generic placeholder image" width="140" height="140">
-            Actividades
-          </h1>
-          <p class="lead text-muted">
-            Encuentra aquí todos los enlaces de las actividades o ejercicios complementarios para tu aprendizaje.
-		      </p>
-      </div>
-</section>
+<div class="album py-5 bg-light">
+  <div class="container">
 
-<div class="row" >	
-	<%Actividad.all.each do |a|%>   
+    <div class="row">	
+	<%Actividad.all.each do |a|%>  
+    <%asignatura =Asignatura.find(Tema.find(a.tema).asignatura)%> 
 	  <div class="col-lg-4">
-      <img class="" src="/images/actividades/<%=a.imagen%>" alt="Generic placeholder image" width="" height="">
-      
-      <span class="badge badge-pill badge-primary"><%=Tema.find(a.tema).titulo.upcase%></span>
-      <%asignatura =Asignatura.find(Tema.find(a.tema).asignatura)%>
-      <span class="badge badge-pill badge-warning"><%=asignatura.name.upcase%></span>
-      <span class="badge badge-pill badge-info"><%=Curso.find(asignatura.curso).name.upcase%></span>
-	    
-	    <h2><%= a.titulo %></h2>   
-         <p><%=a.descripcion%></p>
-	    <p>
-        <a target="_blank" class="btn btn-success" href="<%=a.link%>" role="button">Ver actividad &raquo;</a>
-        <a class="btn btn-success" href="<%=tema_path(a.tema)%>" role="button">Ir actividades</a>
-      </p>
-	  </div><!-- /.col-lg-4 -->
+      <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+            <h4 class="my-0 font-weight-normal"><img class="card-img-top img-fluid" src="/images/actividades/<%=a.imagen%>" alt="Card image cap"></h4>
+          </div>
+        
+        <div class="card-body">
+          <h2><%= a.titulo %></h2>
+          <p class="card-text"><%=a.descripcion%></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Ver actividad</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
   <%end%>
+    </div>
+  </div>
+</div>
 
