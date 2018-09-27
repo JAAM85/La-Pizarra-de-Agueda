@@ -1,6 +1,15 @@
 // import the CSS framework
 // Do not use *= require in Sass or your other stylesheets will not be able to access the Bootstrap mixins and variables.
+
+$primary:#5867dd;
+$secondary: #dfe4ec;
+$success: #1dc9b7;
+
 @import "bootstrap";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 // make all images responsive by default
 img {
