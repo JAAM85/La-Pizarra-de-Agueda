@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap-sprockets
 //= require jquery
-//= require popper
 //= require jquery_ujs
 //= require turbolinks
 //= require moment
+//= require popper
+//= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require_tree .
 
@@ -47,6 +47,26 @@ function edit_tema(tema){
      success: function(data)             
      {
        $('#tema').html(data);               
+     },
+     error:function(data)  
+     {
+       console.log(data);
+     }
+ });
+} 
+
+function edit_trabajo(t){
+
+  $('#trabajo').html("");
+  var url = "/edit_trabajo";
+
+  $.ajax({                        
+     type: "POST",                 
+     url: url,                     
+     data: {"trabajo": t}, 
+     success: function(data)             
+     {
+       $('#trabajo').html(data);               
      },
      error:function(data)  
      {
@@ -112,15 +132,4 @@ function delete_contenido(contenido, id){
        console.log(data);
      }
  });
-}
-
-
-function collapseEvent(event){
-	var button = $(event) // Button that triggered the modal
-  var recipient = button.data('target');
-
-  var t = $(recipient);
-  console.log(t);
-
-  t.collapse('toggle');
 }

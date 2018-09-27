@@ -1,11 +1,24 @@
 class AdminController < ApplicationController
 
+    before_action :autenticado
+
     def index
 
+    end
+
+    def autenticado
+        if (!user_signed_in?)
+            flash[:error] = "Debe estar autenticado."
+            redirect_to :root
+        end            
     end
     
     def temas
         @temas = Tema.all
+    end
+
+    def trabajos
+        @trabajos = Trabajocasa.all
     end
 
     def actividades
@@ -40,6 +53,14 @@ class AdminController < ApplicationController
         end
     end
 
+    def render_trabajo
+        @t = Trabajocasa.find(params[:trabajo])
+        @asignaturas = Asignatura.all
+        respond_to do |format|
+            format.html { render :partial => "admin/partials/editTrabajo", locals: {trabajo: @t, asignaturas: @asignaturas } }
+        end
+    end
+
     def deleteActividad
         @actividad = Actividad.find(params[:id])
         @actividad.destroy
@@ -53,6 +74,11 @@ class AdminController < ApplicationController
     def deleteControl
         @control = Control.find(params[:id])
         @control.destroy
+    end
+    
+    def deleteTrabajo
+        @t = Trabajocasa.find(params[:id])
+        @t.destroy
     end
 
 

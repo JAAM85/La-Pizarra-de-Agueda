@@ -11,6 +11,7 @@ gem "rails-i18n"
 gem 'tzinfo-data'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   gem 'byebug'
@@ -19,7 +20,6 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'

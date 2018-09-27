@@ -16,29 +16,28 @@
 	</ul>
 <%end%>
 
-
-  <%@controles.each do |c|%>
-  <div class="alert alert-danger" role="alert">
-    <img class="" src="/images/<%=Asignatura.find(c.asignatura).image%>" alt="Generic placeholder image" width="50" height="auto"> <strong> ¡CONTROL! </strong> Asignatura:  <strong><%=Asignatura.find(c.asignatura).name%></strong> Fecha: <strong><%=c.fecha.strftime("%d-%m-%Y")%></strong>
-  </div>
-  <%end%>
+<%@controles.each do |c|%>
+<div class="alert alert-danger" role="alert">
+	<img class="" src="/images/<%=Asignatura.find(c.asignatura).image%>" alt="Generic placeholder image" width="50" height="auto"> <strong> ¡CONTROL! </strong> Asignatura:  <strong><%=Asignatura.find(c.asignatura).name%></strong> Fecha: <strong><%=c.fecha.strftime("%d-%m-%Y")%></strong>
+</div>
+<%end%>
 
 <section class="jumbotron text-center">
-        <div class="container">
-        	<h1 class="jumbotron-heading display-1">
-        	<img class="" src="/images/ClassDojo Accessories/community_contact.png" alt="Generic placeholder image" width="140" height="140">
-          #<%=@curso.name%>
-          </h1>
-          <p class="lead text-muted">
-          	Aquí encontrarás todos los deberes, actividades y ejemplos relacionados con <%=@curso.name%> de primaria          	
+	<div class="container">
+		<h1 class="jumbotron-heading display-1">
+		<img class="" src="/images/ClassDojo Accessories/community_contact.png" alt="Generic placeholder image" width="140" height="140">
+		#<%=@curso.name%>
+		</h1>
+		<p class="lead text-muted">
+			Aquí encontrarás todos los deberes, actividades y ejemplos relacionados con <%=@curso.name%> de primaria          	
 		</p>
-          <p>
-            <a href="#asignaturas" class="btn btn-primary my-2">Asignaturas</a>
-            <a href="<%=trabajocasa_path(@curso.id)%>" class="btn btn-secondary my-2">Trabajos de casa</a>
-            <a href="#" class="btn btn-secondary my-2">Actividades</a>
-          </p>
-        </div>
-      </section>
+		<p>
+			<a href="#asignaturas" class="btn btn-primary my-2">Asignaturas</a>
+			<a href="<%=trabajocasa_path(@curso.id)%>" class="btn btn-secondary my-2">Trabajos de casa</a>
+			<a href="#" class="btn btn-secondary my-2">Actividades</a>
+		</p>
+	</div>
+</section>
 
 <!-- Three columns of text below the carousel -->
 <p class="display-4" id="asignaturas">Asignaturas</p>

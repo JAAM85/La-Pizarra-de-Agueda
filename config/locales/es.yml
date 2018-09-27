@@ -1,4 +1,11 @@
 es:
+  Monday: 'Lunes'
+  Tuesday: 'Martes'
+  Thursday: 'Jueves'
+  Wednesday: 'Miércoles'
+  Friday: 'Viernes'
+  Saturday: 'Sábado'
+  Sunday: 'Domingo'
   activerecord:
     errors:
       messages:
