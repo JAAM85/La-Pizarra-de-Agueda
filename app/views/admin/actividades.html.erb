@@ -35,7 +35,7 @@
 		<%@actividades.each do |t|%>
 		<tr>
 			<th scope="row"><%=t.titulo%></th>
-			<td><%= t.descripcion%></td>
+			<td><%= t.descripcion[0..50]%>...</td>
 			<td><%= t.imagen%></td>
 			<td><a href="<%=tema_path(t.tema)%>"><%= Tema.find(t.tema).titulo%></a></td>
 			<td></td>

@@ -25,6 +25,10 @@ class AdminController < ApplicationController
         @actividades = Actividad.all
     end
 
+    def noticias
+        @noticias = Noticias.all
+    end
+
     def render_temas
         @tema = Tema.find(params[:tema])
         @asignaturas = Asignatura.all
@@ -47,7 +51,11 @@ class AdminController < ApplicationController
 
     def render_actividades
         @actividad = Actividad.find(params[:actividad])
-        @asignaturas = Asignatura.all
+       
+        @temas = Tema.joins("INNER JOIN asignaturas ON asignaturas.id=temas.asignatura")
+        .joins("INNER JOIN cursos ON cursos.id=asignaturas.curso")
+        .where("asignaturas.curso=?", 5)
+
         respond_to do |format|
             format.html { render :partial => "admin/partials/editActividad", locals: {actividad: @actividad, asignaturas: @asignaturas } }
         end
@@ -58,6 +66,13 @@ class AdminController < ApplicationController
         @asignaturas = Asignatura.all
         respond_to do |format|
             format.html { render :partial => "admin/partials/editTrabajo", locals: {trabajo: @t, asignaturas: @asignaturas } }
+        end
+    end
+
+    def render_noticia
+        @t = Noticias.find(params[:noticia])
+        respond_to do |format|
+            format.html { render :partial => "admin/partials/editNoticia", locals: {noticia: @t} }
         end
     end
 
@@ -78,6 +93,11 @@ class AdminController < ApplicationController
     
     def deleteTrabajo
         @t = Trabajocasa.find(params[:id])
+        @t.destroy
+    end
+
+    def deleteNoticia
+        @t = Noticias.find(params[:id])
         @t.destroy
     end
 

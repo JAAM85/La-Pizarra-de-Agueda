@@ -25,6 +25,7 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'mysql2'
 gem 'bigdecimal'
+gem 'tinymce-rails'
 
 group :development do
   gem 'better_errors'

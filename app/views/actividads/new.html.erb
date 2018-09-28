@@ -8,20 +8,27 @@
     <label for="">Imagen</label>
     <%= f.text_field :imagen, class: "form-control" %>
   </div>
-
-  <div class="form-group">
-    <label for="">Descripcion</label>
-    <%= f.text_area :descripcion, class: "form-control" %>
-  </div>
-
+  
   <div class="form-group">
     <label for="">Temas</label>
     <%= f.select :tema, options_for_select(@temas.map{ |u| [u.titulo, u.id] }), {}, { :class => 'form-control' } %>   
   </div>
 
   <div class="form-group">
+    <label for="">Descripcion</label>
+    <%= f.text_area :descripcion, class: "form-control" %>
+  </div>
+
+
+
+  <div class="form-group">
     <label for="">Link</label>
-    <%= f.text_area :link, class: "form-control" %>
+    <%= f.text_field :link, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="">Contenido</label>
+    <%= f.text_area :contenido, class: "form-control" %>
   </div>
 
     

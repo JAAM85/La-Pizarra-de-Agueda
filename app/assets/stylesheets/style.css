@@ -245,3 +245,14 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   height: 25vh;
 }
+
+.noticiaDisplay{
+  filter: brightness(.5);
+  -webkit-filter: brightness(.5);
+  height: 40vh;
+}
+
+#overlap{
+  position: relative;
+  top: -160px;
+}

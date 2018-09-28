@@ -1,3 +1,5 @@
+
+<%= render partial: 'noticias/partials/menuAdmin' %>
 <section class="jumbotron text-center">
         <div class="container">
         	<h1 class="jumbotron-heading display-1">
@@ -5,7 +7,7 @@
             Noticias
           </h1>
           <p class="lead text-muted">
-            Encuentra aquí todas las noticias relacionadas con la web.
+            Encuentra aquí todas las noticias relacionadas con la clase.
 		      </p>
       </div>
 </section>
@@ -22,7 +24,7 @@
             <h2 class="featurette-heading"><%=a.titulo%></h2>
             <p class="lead"><%=a.resumen%></p>
 
-            <a href="<%=noticia_path(a.id)%>" class="btn btn-link ">Ver noticia</a>   
+            <a href="<%=noticia_path(a.id)%>" class="btn btn-info ">Ver noticia</a>   
           </div>
 
           <div class="col-md-5">
@@ -42,7 +44,7 @@
           <div class="col-md-7">
             <h2 class="featurette-heading"><%=a.titulo%></h2>
             <p class="lead"><%=a.resumen%></p>
-          <a href="<%=noticia_path(a.id)%>" class="btn btn-link ">Ver noticia</a>  
+          <a href="<%=noticia_path(a.id)%>" class="btn btn-info ">Ver noticia</a>  
           </div>
         </div>     
           
@@ -53,3 +55,4 @@
 
   <%end%>
  </div><!-- /.container -->
+

@@ -10,5 +10,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+  
+  def upload_image
+    render :json => FroalaEditorSDK::Image.upload(params, "public/uploads/images/")
+  end
 
+  
 end

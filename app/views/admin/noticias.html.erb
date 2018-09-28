@@ -3,17 +3,15 @@
 	<div class="col-md-2">
 		<%= render partial: '/admin/partials/sidebar' %>
 	</div>
-
 <div class="col-md-10">
-
-<h1 class="jumbotron-heading display-3">       
-	Todas las tareas de casa
+<h1 class="jumbotron-heading display-2">       
+	Todas las noticias
 </h1>
 
 <ul class="nav">	
 	<li class="nav-item">			
-		<a class="nav-link active" href="<%=trabajocasas_new_path(5)%>">
-			<i class="fas fa-plus"></i> Crear nueva tarea de casa
+		<a class="nav-link active" href="<%=new_noticia_path%>">
+			<i class="fas fa-plus"></i> Crear nueva noticia
 		</a>
 	</li>		
 </ul>
@@ -22,8 +20,8 @@
 	<thead>
 		<tr>
 			<th scope="col">Titulo</th>
-			<th scope="col">Descripcion</th>
-			<th scope="col">Fecha</th>
+			<th scope="col">Contenido</th>
+			<th scope="col">Imagen</th>
 			<th scope="col">Asignatura</th>
 			<th scope="col">Editar</th>
 			<th scope="col">Eliminar</th>
@@ -31,39 +29,34 @@
 	</thead>
 	<tbody>
 
-		<%@trabajos.each do |t|%>
+		<%@noticias.each do |t|%>
 		<tr>
 			<th scope="row"><%=t.titulo%></th>
-			<td><%= t.descripcion%></td>
-			<td><%= t.date.strftime("%d-%m-%y")%></td>
-			<td><%=Asignatura.find(t.asignatura).name%></td>
-
+			<td><%= t.contenido.split.size%> palabras</td>
+			<td><%= t.imagen%></td>
+			<td><%= t.resumen%></td>
 			<td>
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-id="<%=t.id%>" data-target="#exampleModal">
-							Editar
-					</button>
-			</td>
-			<td>
-				<button onclick="destroyControl(this);" data-id="<%=t.id%>" data-contenido="trabajo"  data-mensaje="<%=t.titulo%>" type="button" class="btn btn-outline-danger">Eliminar</button>
-			</td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-id="<%=t.id%>" data-target="#exampleModal">
+                    Editar
+                </button>
+            </td>
+			<td><button onclick="destroyControl(this)" data-contenido="noticia" data-id="<%=t.id%>"  data-mensaje="<%=t.titulo%>" type="button" class="btn btn-outline-danger">Eliminar</button></td>
 		</tr>
 		<%end%>
 	</tbody>
 </table>
-
-<%=%>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edición de Trabajo</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edición de tema</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div id="trabajo" class="modal-body">
+      <div id="noticia" class="modal-body">
         ...
       </div>      
     </div>
@@ -95,11 +88,10 @@
 
 <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
-
-  var button = $(event.relatedTarget) // Button that triggered the modal
+    var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('id') // Extract info from data-* attributes
 
-  edit_trabajo(recipient);
+  edit_noticia(recipient);
 })
 
 </script>
