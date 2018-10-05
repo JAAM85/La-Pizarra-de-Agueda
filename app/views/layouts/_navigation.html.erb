@@ -1,4 +1,4 @@
- <div class="container">
+ <div class="container fixed-top" style="background-color:white;">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-2 pt-1">
@@ -23,14 +23,14 @@
         </div>
       </header>
 
-      <div class="nav-scroller py-1 mb-2">
+      <div class="nav-scroller">
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="/">Inicio</a>
           <a class="p-2 text-muted" href="<%=actividads_path%>">Actividades</a>
           <a class="p-2 text-muted" href="<%=noticias_path%>">Noticias</a>
           <a class="p-2 text-muted" href="/cursos/1">Primero</a>
           <a class="p-2 text-muted" href="/cursos/2">Segundo</a>
-          <a class="p-2 text-muted" href="#/cursos/3">Tercero</a>
+          <a class="p-2 text-muted" href="/cursos/3">Tercero</a>
           <a class="p-2 text-muted" href="/cursos/4">Cuarto</a>
           <a class="p-2 text-muted" href="/cursos/<%=Curso.find(5).id%>">Quinto</a>
           <a class="p-2 text-muted" href="/cursos/6">Sexto</a>

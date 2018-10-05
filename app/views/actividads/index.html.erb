@@ -9,32 +9,7 @@
 <div class="album py-5 bg-light">
   <div class="container">
 
-   <div class="card-deck" style="padding-bottom:5px">
-<%@actividades.each_with_index do |t, index|%>
-  <div class="card">
-    <img class="card-img-top" width="200" src="/images/actividades/<%=t.imagen%>" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><%=t.titulo%></h5>
-      <p class="card-text"><%=sanitize t.descripcion%></p>  
-    </div>
-    <div class="card-footer">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-id="<%=t.id%>" data-target="#exampleModalLong">
-            Ver actividades
-          </button>          
-          <a class="btn btn-outline-info btn-sm" href="<%=actividad_path(t.id)%>">Saber más</a>
-        </div>
-      </div>     
-    </div>
-  </div>
-  
-  <%if (index+1)%4 == 0%>
-    </div>
-    <div class="card-deck" style="padding-bottom:5px">
-  <%end%>
-<%end%>
-</div>
+  <%=render :partial => "actividads/partials/actividades"%>           
 
 
 <!-- Modal -->
@@ -66,3 +41,4 @@ $('#exampleModalLong').on('show.bs.modal', function (event) {
   reload_links(recipient);
 })
 </script>
+
